@@ -6,8 +6,11 @@
       </div>
     </div>
     <div class="row col-md-2">
-      <%= button_tag t("accept"), class: "btn btn-success"%>
-      <%= button_tag t("reject"), class: "btn btn-danger"%>
+      <%= form_for booking, url: admin_booking_tours_path do |f| %>
+        <%= f.hidden_field :id, value: booking.id %>
+        <%= f.submit t("accept"), class: "btn btn-success" %>
+        <%= f.submit t("reject"), class: "btn btn-danger" %>
+      <% end %>
     </div>
   </div>
 <% end %>

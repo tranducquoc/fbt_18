@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   namespace :admin do
     get "/booking_tours", to: "admin#new"
+    patch "/booking_tours", to: "admin#create"
   end
 
   resources :tours, only: :show
