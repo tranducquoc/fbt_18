@@ -30,6 +30,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  not_allow: "You not allow to do this"
+  reject: "Reject"
+  accept: "Accept"
   search_holder: "Search Tour"
   search_submit: "Search"
   out_of_seats: Call tech support!
