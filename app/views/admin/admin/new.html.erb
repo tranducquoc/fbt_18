@@ -1,0 +1,13 @@
+<% @bookings.each do |booking| %>
+  <div class="row">
+    <div class="col-md-10">
+      <div>
+        <p><%= booking.tour.name %></p>
+      </div>
+    </div>
+    <div class="row col-md-2">
+      <%= button_tag t("accept"), class: "btn btn-success"%>
+      <%= button_tag t("reject"), class: "btn btn-danger"%>
+    </div>
+  </div>
+<% end %>
