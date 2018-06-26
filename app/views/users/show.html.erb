@@ -14,7 +14,14 @@
           <p><b><%= t "status" %></b> <%= booking.status %></p>
           <p><b><%= t "start_date" %>:</b> <%= booking.tour.start_date %></p>
           <p><b><%= t "end_date" %>:</b> <%= booking.tour.end_date %></p>
-          <div><%= button_tag t("cancel"), class: "btn btn-danger" %></div>
+          <% if booking.pending? %>
+            <div>
+              <%= form_for booking, url: cancel_booking_path do |f| %>
+                <%= f.hidden_field :id, value: booking.id %>
+                <%= f.submit t("cancel"), class: "btn btn-success" %>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

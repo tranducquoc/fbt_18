@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :tours, only: :show
   get "/profile", to: "users#show"
+  patch "/cancel_booking", to: "users#cancel_booking"
   get "/login", to: "session#new"
   post "/login", to: "session#create"
   delete "/logout", to: "session#destroy"

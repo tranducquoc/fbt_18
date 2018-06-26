@@ -34,6 +34,8 @@ en:
   not_allow: "You not allow to do this"
   reject: "Reject"
   accept: "Accept"
+  cancel: "Cancel"
+  can't_cancel: "Cannot cancel booking"
   search_holder: "Search Tour"
   search_submit: "Search"
   request_admin: "Booking Request"

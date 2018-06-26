@@ -12,16 +12,18 @@
               <div class="col-sm-6 resize_asmin">
                 <p><b><%= t "price_total" %></b> <%= booking.total_price %> <%= t("$") %></p>
                 <p><b><%= t "quantity" %>:</b> <%= booking.quantity %></p>
-                <p><b><%= t "status" %></b> <%= booking.status %></p>
+                <p><b><%= t "status" %></b> <span class="label label-info"><%= booking.status %></span></p>
                 <p><b><%= t "start_date" %>:</b> <%= booking.tour.start_date %></p>
                 <p><b><%= t "end_date" %>:</b> <%= booking.tour.end_date %></p>
-                <div>
-                  <%= form_for booking, url: admin_booking_tours_path do |f| %>
-                    <%= f.hidden_field :id, value: booking.id %>
-                    <%= f.submit t("accept"), class: "btn btn-success" %>
-                    <%= f.submit t("reject"), class: "btn btn-danger" %>
-                  <% end %>
-                </div>
+                <% if booking.pending? %>
+                  <div>
+                    <%= form_for booking, url: admin_booking_tours_path do |f| %>
+                      <%= f.hidden_field :id, value: booking.id %>
+                      <%= f.submit t("accept"), class: "btn btn-success" %>
+                      <%= f.submit t("reject"), class: "btn btn-danger" %>
+                    <% end %>
+                  </div>
+                <% end %>
               </div>
             </div>
           </div>
