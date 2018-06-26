@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
 
   resources :tours, only: :show
+  get "/profile", to: "users#show"
   get "/login", to: "session#new"
   post "/login", to: "session#create"
   delete "/logout", to: "session#destroy"

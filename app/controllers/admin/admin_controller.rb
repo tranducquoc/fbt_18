@@ -4,7 +4,7 @@ module Admin
 
     def new
       @bookings = Booking.includes(:tour).pending_status.order_desc
-        .paginate page: params[:page], per_page: Settings.record_pages
+        .paginate page: params[:page], per_page: Settings.admin_booking
     end
 
     def create

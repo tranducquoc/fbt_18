@@ -1,0 +1,23 @@
+<%= will_paginate @bookings %>
+<% @bookings.profile_id(current_user.id).each do |booking| %>
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-heading"><b><%= booking.tour.name %></b></div>
+    <div class="panel-body">
+      <div class="col-md-6">
+        <%= image_tag booking.tour.picture, class: "resize" %>
+      </div>
+      <div class="col-md-6">
+        <div class="col-md-10">
+          <p><b><%= t "price_total" %></b> <%= booking.total_price %> <%= t("$") %></p>
+          <p><b><%= t "quantity" %>:</b> <%= booking.quantity %></p>
+          <p><b><%= t "status" %></b> <%= booking.status %></p>
+          <p><b><%= t "start_date" %>:</b> <%= booking.tour.start_date %></p>
+          <p><b><%= t "end_date" %>:</b> <%= booking.tour.end_date %></p>
+          <div><%= button_tag t("cancel"), class: "btn btn-danger" %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

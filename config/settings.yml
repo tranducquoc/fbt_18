@@ -25,3 +25,4 @@ remember_me: "1"
 domain: "heroku.com"
 port: 587
 address: "smtp.gmail.com"
+admin_booking: 3

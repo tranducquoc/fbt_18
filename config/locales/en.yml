@@ -30,6 +30,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  status: "Status:"
   not_allow: "You not allow to do this"
   reject: "Reject"
   accept: "Accept"
