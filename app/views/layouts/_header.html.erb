@@ -16,7 +16,10 @@
               <%= t "account" %> <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to t("profile"), "#" %></li>
+              <li><%= link_to t("profile"), profile_path %></li>
+              <% if current_user.admin? %>
+                <li><%= link_to t("Bookings"), admin_booking_tours_path %></li>
+              <% end %>
               <li><%= link_to t("settings"), "#" %></li>
               <li class="divider"></li>
               <li>

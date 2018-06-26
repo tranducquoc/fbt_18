@@ -6,6 +6,10 @@ class Booking < ApplicationRecord
 
   scope :order_desc, ->{order created_at: :desc}
   scope :pending_status, ->{where(status: :pending).order_desc}
+  scope :profile_id, ->(id){where(user_id: id).order_desc}
+
+  delegate :name, to: :tour, prefix: true
+  delegate :picture, to: :tour, prefix: true
 
   def email_to_user
     BookingMailer.request_user(self).deliver_now

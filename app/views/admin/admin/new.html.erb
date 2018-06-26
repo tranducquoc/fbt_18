@@ -1,16 +1,32 @@
+<%= will_paginate @bookings %>
 <% @bookings.each do |booking| %>
   <div class="row">
     <div class="col-md-10">
-      <div>
-        <p><%= booking.tour.name %></p>
+      <div class="panel panel-default">
+        <div class="panel-heading"><b><%= booking.tour_name %></b></div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-sm-6">
+                <%= image_tag booking.tour_picture, class: "resize" %>
+              </div>
+              <div class="col-sm-6 resize_asmin">
+                <p><b><%= t "price_total" %></b> <%= booking.total_price %> <%= t("$") %></p>
+                <p><b><%= t "quantity" %>:</b> <%= booking.quantity %></p>
+                <p><b><%= t "status" %></b> <%= booking.status %></p>
+                <p><b><%= t "start_date" %>:</b> <%= booking.tour.start_date %></p>
+                <p><b><%= t "end_date" %>:</b> <%= booking.tour.end_date %></p>
+                <div>
+                  <%= form_for booking, url: admin_booking_tours_path do |f| %>
+                    <%= f.hidden_field :id, value: booking.id %>
+                    <%= f.submit t("accept"), class: "btn btn-success" %>
+                    <%= f.submit t("reject"), class: "btn btn-danger" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
-    </div>
-    <div class="row col-md-2">
-      <%= form_for booking, url: admin_booking_tours_path do |f| %>
-        <%= f.hidden_field :id, value: booking.id %>
-        <%= f.submit t("accept"), class: "btn btn-success" %>
-        <%= f.submit t("reject"), class: "btn btn-danger" %>
-      <% end %>
     </div>
   </div>
 <% end %>
+<%= will_paginate @bookings %>
